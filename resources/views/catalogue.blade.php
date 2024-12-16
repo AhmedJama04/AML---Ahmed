@@ -2,6 +2,7 @@
     <x-slot:content>
         <div class="w-full flex justify-center items-center flex-col">
             <x-page-title title='Catalogue'></x-page-title>
+            <x-filter-button text='Filter'></x-filter-button>
             <ul class="space-y-10 w-full flex items-center mx-auto flex-col">
                 <li>
                     <x-catalogue-section title='Best sellers'></x-catalogue-section>

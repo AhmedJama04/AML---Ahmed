@@ -10,18 +10,19 @@
                         <h2>Published on: {{ $media->publish_date }}</h2>
                         <h2>{{ $media->description }}</h2>
                         @if ($borrowedBefore)
-                        <button onclick="ShowReviewWindow()" class="bg-blue-200 w-[10rem] h-[2rem] rounded-[5px] shadow-sm mt-[10px] active:bg-blue-500 text-black">Review</button>
+                            <button onclick="ShowReviewWindow()"
+                                class="bg-blue-200 w-[10rem] h-[2rem] rounded-[5px] shadow-sm mt-[10px] active:bg-blue-500 text-black">Review</button>
                         @endif
                     </div>
                     <div id="reviewWindow" class="hidden">
                         <x-review-window mediaid="{{ $media->id }}"></x-review-window>
                     </div>
                     @if ($errors->any())
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function(){
-                            document.querySelector('#reviewWindow').classList.remove('hidden')
-                        })
-                    </script>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                document.querySelector('#reviewWindow').classList.remove('hidden')
+                            })
+                        </script>
                     @endif
                     @if (@session('success'))
                         <script>
@@ -32,15 +33,16 @@
                         <h1 class="text-[2rem]">Reviews</h1>
                         <ul>
                             @forelse($reviews as $review)
-                            <li>
-                                <h2 class="text-[1.2rem]">Rating: {{ $review->rating }} - Review: {{ $review->review }} - {{ $review->published_on }}</h2>
-                            </li>
+                                <li>
+                                    <h2 class="text-[1.2rem]">Rating: {{ $review->rating }} - Review:
+                                        {{ $review->review }} - {{ $review->published_on }}</h2>
+                                </li>
                             @empty
-                            <li>
-                                <h2 class="text-[1.2rem]">
-                                    No reviews.
-                                </h2>
-                            </li>
+                                <li>
+                                    <h2 class="text-[1.2rem]">
+                                        No reviews.
+                                    </h2>
+                                </li>
                             @endforelse
                         </ul>
                     </div>
@@ -49,9 +51,8 @@
         </main>
     </x-slot>
 </x-base>
-
 <script>
-    function ShowReviewWindow(){
+    function ShowReviewWindow() {
         var reviewWindow = document.getElementById("reviewWindow");
 
         reviewWindow.classList.remove("hidden")
